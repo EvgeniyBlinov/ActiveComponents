@@ -211,3 +211,7 @@ Usage:
 \ModuleName\Models\UsersModel::model(array('asArray' => true))->setAttributes(array('id' => 1))->findByCriteria() // - get record as array where id = 1
 ```
     
+### Author ###
+
+- [Blinov Evgeniy](mailto:evgeniy_blinov@mail.ru) 
+- [Skype](skype:evgeniy_blinov?call)
