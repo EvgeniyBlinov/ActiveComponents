@@ -3,7 +3,14 @@ namespace ActiveComponents;
 
 abstract class AbstractModel extends AbstractComponent
 {
+    /**
+     * Array of model attributes
+     */
     protected $attributes = array();
+    
+    /**
+     * Array of native model attributes. Read only.
+     */
     protected $nativeAttributes = array();
 
     /**
@@ -76,8 +83,6 @@ abstract class AbstractModel extends AbstractComponent
         }
         
         $modelRules = count($rules) ? $rules : $this->rules();
-
-
         
         foreach ($modelRules as $rule) {
             $errors = \ActiveComponents\CreateValidator::getInstance()->validate($this, $rule)->getErrors();

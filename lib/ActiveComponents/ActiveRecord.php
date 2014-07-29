@@ -275,7 +275,6 @@ abstract class ActiveRecord extends AbstractTableGateway
                 $this->scenario = 'update';
             }
         } else {
-            //$attributesWithoutPk = array_diff_key($this->getAttributes(), array_flip(array($this->tablePrimaryKey)));
             if (($status = $this->update($this->getAttributes(), $this->nativeAttributes)) != false) {
                 $this->nativeAttributes = $this->getAttributes();
                 return $status;

@@ -1,8 +1,6 @@
 <?php
 namespace ActiveComponents;
 
-use Helper;
-
 /**
  * ActiveRecordModel
  */
@@ -91,8 +89,6 @@ abstract class ActiveRecordModel extends ActiveRecord
         foreach ($modelRules as $rule) {
             $errors = \ActiveComponents\CreateValidator::getInstance()->validate($this, $rule)->getErrors();
             if (count($errors)) {
-//                var_dump($errors);
-//                exit;
                 $this->setErrors($errors);
             }
         }

@@ -9,9 +9,9 @@ class CreateValidator
     private $_errors = array();
     private $_model;
 
-    private function __construct(){ /* ... @return Singleton */ }  // Защищаем от создания через new Singleton
-    private function __clone()    { /* ... @return Singleton */ }  // Защищаем от создания через клонирование
-    private function __wakeup()   { /* ... @return Singleton */ }  // Защищаем от создания через unserialize
+    private function __construct(){ /* ... @return CreateValidator */ }
+    private function __clone()    { /* ... @return CreateValidator */ }
+    private function __wakeup()   { /* ... @return CreateValidator */ }
 
     /**
      * @return CreateValidator is singleton

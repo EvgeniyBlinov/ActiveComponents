@@ -1,8 +1,6 @@
 <?php
 namespace ActiveComponents;
 
-use Helper;
-
 /**
  * ActiveRecordModel
  */
@@ -117,29 +115,5 @@ abstract class ActiveFormModel extends \ActiveComponents\AbstractModel
     public function getArrayCopy()
     {
         return $this->attributes;
-    }
-
-    /**
-     * Processing form
-     * @param \Training\Form\formGenerate $form
-     * @param \Zend\Stdlib\RequestInterface $request
-     * @return bool|\Training\Form\formGenerate
-     */
-    public function formProceed(\Training\Form\formGenerate $form, \Zend\Stdlib\RequestInterface $request)
-    {
-        if($request->isPost()){
-            $form->setData($request->getPost());
-            if($form->isValid()){
-                $this->setAttributes(array_merge($this->attributes, $form->getData()));
-                return $this->save();
-            }else{
-                return $form;
-            }
-        }else{
-            $form->bind($this);
-            return $form;
-        }
-
-        return true;
     }
 }
