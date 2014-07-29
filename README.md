@@ -214,4 +214,4 @@ Usage:
 ### Author ###
 
 - [Blinov Evgeniy](mailto:evgeniy_blinov@mail.ru) 
-- [Skype](skype:evgeniy_blinov?call)
+- ([Skype](skype:evgeniy_blinov?call))
