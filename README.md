@@ -213,5 +213,4 @@ Usage:
     
 ### Author ###
 
-- [Blinov Evgeniy](mailto:evgeniy_blinov@mail.ru)
-- [Blinov Evgeniy](http://blinov.in.ua/)
+- [Blinov Evgeniy](mailto:evgeniy_blinov@mail.ru) ([http://blinov.in.ua/](http://blinov.in.ua/))
