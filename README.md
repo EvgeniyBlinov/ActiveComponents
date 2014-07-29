@@ -83,6 +83,8 @@ class UsersModel extends UsersModelEntity
             array('email', 'email'),
         );
     }
+    
+//////////////// ADVANCED FUNCTIONS ////////////////////////////////////////////
 
     /**
      * Before validate function
@@ -201,8 +203,11 @@ class UsersModel extends UsersModelEntity
 
 Usage:
     `\ModuleName\Models\UsersModel::model()` - get a model.
+    
     `\ModuleName\Models\UsersModel::model()->setAttributes(array('name' => 'Sonya'))->save()` - save a new record.
+    
     `\ModuleName\Models\UsersModel::model()->findByPk(1)` - UsersModel->tablePrimaryKey = 'id'; get record where id = 1
+    
     `\ModuleName\Models\UsersModel::model()->setAttributes(array('id' => 1))->findByCriteria()` - get record where id = 1
     `\ModuleName\Models\UsersModel::model(array('asArray' => true))->setAttributes(array('id' => 1))->findByCriteria()` - get record as array where id = 1
     
