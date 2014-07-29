@@ -4,12 +4,15 @@ ActiveComponents
 Light ORM for ZF2
 
 
+## How to use ActiveRecordModel ##
+
+Create a model entity.
+You can do this with your own model entity generator.
 
 ```php
-namespace Training\modelEntity;
+namespace ModuleName\modelEntity;
 
-class UsersModelEntity extends \Training\Components\TrainingActiveRecordModel 
-{
+class UsersModelEntity extends \ActiveComponents\ActiveRecordModel
 
     public function rules()
     {
