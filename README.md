@@ -13,17 +13,29 @@ You can do this with your own model entity generator.
 namespace ModuleName\modelEntity;
 
 class UsersModelEntity extends \ActiveComponents\ActiveRecordModel
-
+{
+    /**
+     * Required method
+     * @return array of rules for validator
+     */
     public function rules()
     {
         return array(array(implode(',',$this->attributeNames()),'match','pattern'=>'/(.*)/'));
     }
 
+    /**
+     * Required method
+     * @return string of DB table name
+     */
     public function getTableName()
     {
         return "users";
     }
 
+    /**
+     * Required method
+     * @return array of DB table columns
+     */
     public function attributeNames()
     {
         return array(
@@ -211,3 +223,6 @@ Usage:
 \ModuleName\Models\UsersModel::model(array('asArray' => true))->setAttributes(array('id' => 1))->findByCriteria() // - get record as array where id = 1
 ```
     
+### Author ###
+
+- [Blinov Evgeniy](mailto:evgeniy_blinov@mail.ru) ([http://blinov.in.ua/](http://blinov.in.ua/))
