@@ -4,7 +4,7 @@ ActiveComponents
 Light ORM for ZF2
 
 ##Install
----
+
 Add to composer.json
 
 ```json
