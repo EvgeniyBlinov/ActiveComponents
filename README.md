@@ -20,7 +20,7 @@ Add to composer.json
               "name": "evgeniyblinov/activecomponents",
               "version":"master",
               "source": {
-                  "url": "https://github.com/EvgeniyBlinov/ActiveComponents.git",
+                  "url": "https://github.com/EvgeniyBlinov/ActiveComponents",
                   "type": "git",
                   "reference":"master"
                 },
