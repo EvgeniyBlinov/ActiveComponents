@@ -7,37 +7,10 @@ Light ORM for ZF2
 
 ##Install
 
-Add to composer.json
-
-```json
-   "require":{
-        "evgeniyblinov/activecomponents": "master"
-    },
-    
-    "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type":"package",
-            "package": {
-              "name": "evgeniyblinov/activecomponents",
-              "version":"master",
-              "source": {
-                  "url": "https://github.com/EvgeniyBlinov/ActiveComponents",
-                  "type": "git",
-                  "reference":"master"
-                },
-                "autoload": {
-                    "psr-0": {
-                        "ActiveComponents": "lib/"
-                    }
-                }
-            }
-        }
-    ],
+```sh
+composer config repositories.activecomponents git https://github.com/EvgeniyBlinov/ActiveComponents
+composer require "cent/activecomponents:v0.0.1"
 ```
-
-And run `composer install`
-
 
 ## How to use ActiveRecordModel ##
 
