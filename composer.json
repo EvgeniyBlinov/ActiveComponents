@@ -1,0 +1,17 @@
+{
+    "name"        : "cent/active-components",
+    "version"     : "v0.0.1",
+    "description" : "ActiveComponents",
+    "authors"     : [
+        {
+            "name": "Evgeniy Blinov",
+            "email": "evgeniy_blinov@mail.ru"
+        }
+    ],
+    "require": {
+        "php"                    : ">=5.4"
+    },
+    "autoload": {
+        "psr-4": { "lib\\": "" }
+    }
+}
