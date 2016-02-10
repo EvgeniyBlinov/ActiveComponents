@@ -12,6 +12,7 @@
  * @license    http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace ActiveComponents; 
+use ActiveComponents\CreateValidator;
 
 abstract class AbstractModel extends AbstractComponent
 {
@@ -97,7 +98,7 @@ abstract class AbstractModel extends AbstractComponent
         $modelRules = count($rules) ? $rules : $this->rules();
         
         foreach ($modelRules as $rule) {
-            $errors = \ActiveComponents\CreateValidator::getInstance()->validate($this, $rule)->getErrors();
+            $errors = CreateValidator::getInstance()->validate($this, $rule)->getErrors();
             if (count($errors)) {
                 $this->setErrors($errors);
             }

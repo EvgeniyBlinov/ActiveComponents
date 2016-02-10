@@ -112,14 +112,12 @@ class CreateValidator
                 $this->RequiredValidator($attribute, $attributeValue);
                 return !$this->hasErrors();
             case 'email':
-                $validator = new \Zend\Validator\EmailAddress(array('isValid' => $attributeValue,'useDomainCheck'=>false));
-                if (count($validator->getMessages())) {
+                if (filter_var($attributeValue, FILTER_VALIDATE_EMAIL) === false) {
                     $this->addError($attribute, 'Invalid email address!');
                 }
                 return !$this->hasErrors();
             case 'url':
-                $validator = new \Zend\Validator\Uri(array('isValid' => $attributeValue));
-                if (count($validator->getMessages())) {
+                if (filter_var($attributeValue, FILTER_VALIDATE_URL) === false) {
                     $this->addError($attribute, 'Invalid url!');
                 }
                 return !$this->hasErrors();
