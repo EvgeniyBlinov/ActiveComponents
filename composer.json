@@ -1,5 +1,5 @@
 {
-    "name"        : "cent/active-components",
+    "name"        : "cent/activecomponents",
     "version"     : "v0.0.1",
     "description" : "ActiveComponents",
     "authors"     : [
@@ -12,6 +12,6 @@
         "php"                    : ">=5.4"
     },
     "autoload": {
-        "psr-4": { "lib\\": "" }
+        "psr-0": { "ActiveComponents": "lib/" }
     }
 }
