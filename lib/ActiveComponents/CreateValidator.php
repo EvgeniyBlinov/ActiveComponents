@@ -106,10 +106,10 @@ class CreateValidator
         $attributeValue = $this->_model->$attribute;
         switch ($validatorName) {
             case 'match':
-                $this->MatchValidator($attribute, $attributeValue, $validatorParams['pattern']);
+                $this->MatchValidator($attribute, $attributeValue, $validatorParams);
                 return !$this->hasErrors();
             case 'required':
-                $this->RequiredValidator($attribute, $attributeValue);
+                $this->RequiredValidator($attribute, $attributeValue, $validatorParams);
                 return !$this->hasErrors();
             case 'email':
                 if (filter_var($attributeValue, FILTER_VALIDATE_EMAIL) === false) {
@@ -136,13 +136,18 @@ class CreateValidator
      * validate model by preg_match
      * @param string $attribute name of model attribute
      * @param string $attributeValue value of model attribute
-     * @param string $pattern
+     * @param array $validatorParams
      * @return boolean
      */
-    public function MatchValidator($attribute, $attributeValue, $pattern)
+    public function MatchValidator($attribute, $attributeValue, array $validatorParams = array())
     {
-        if (!preg_match($pattern, $attributeValue)) {
-            $this->addError($attribute, "Field %s is invalid!");
+        if (!preg_match($validatorParams['pattern'], $attributeValue)) {
+            $this->addError(
+                $attribute,
+                !empty($validatorParams['message']) ?
+                    $validatorParams['message'] :
+                    "Field %s is invalid!"
+            );
         }
 
         return !count($this->getErrors());
@@ -153,13 +158,19 @@ class CreateValidator
      * validate model by preg_match
      * @param string $attribute name of model attribute
      * @param string $attributeValue value of model attribute
+     * @param array $validatorParams
      * @return boolean
      */
-    public function RequiredValidator($attribute, $attributeValue)
+    public function RequiredValidator($attribute, $attributeValue, array $validatorParams = array())
     {
         $pattern = '/\S+/';
         if (!preg_match($pattern, $attributeValue)) {
-            $this->addError($attribute, "Field %s is required!");
+            $this->addError(
+                $attribute,
+                !empty($validatorParams['message']) ?
+                    $validatorParams['message'] :
+                    "Field %s is required!"
+            );
         }
 
         return !count($this->getErrors());
