@@ -106,17 +106,26 @@ class CreateValidator
         $attributeValue = $this->_model->$attribute;
         switch ($validatorName) {
             case 'match':
+                if (empty($attributeValue) && !empty($validatorParams['allowEmpty'])) {
+                    return true;
+                }
                 $this->MatchValidator($attribute, $attributeValue, $validatorParams);
                 return !$this->hasErrors();
             case 'required':
                 $this->RequiredValidator($attribute, $attributeValue, $validatorParams);
                 return !$this->hasErrors();
             case 'email':
+                if (empty($attributeValue) && !empty($validatorParams['allowEmpty'])) {
+                    return true;
+                }
                 if (filter_var($attributeValue, FILTER_VALIDATE_EMAIL) === false) {
                     $this->addError($attribute, 'Invalid email address!');
                 }
                 return !$this->hasErrors();
             case 'url':
+                if (empty($attributeValue) && !empty($validatorParams['allowEmpty'])) {
+                    return true;
+                }
                 if (filter_var($attributeValue, FILTER_VALIDATE_URL) === false) {
                     $this->addError($attribute, 'Invalid url!');
                 }
@@ -141,6 +150,9 @@ class CreateValidator
      */
     public function MatchValidator($attribute, $attributeValue, array $validatorParams = array())
     {
+        if (empty($attributeValue) && !empty($validatorParams['allowEmpty'])) {
+            return true;
+        }
         if (!preg_match($validatorParams['pattern'], $attributeValue)) {
             $this->addError(
                 $attribute,
