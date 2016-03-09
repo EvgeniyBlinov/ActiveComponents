@@ -187,7 +187,7 @@ abstract class ActiveRecord extends AbstractTableGateway
 
         return $this;
     }
-    
+
     /**
      * Set attribute
      * @param string $name
@@ -292,7 +292,7 @@ abstract class ActiveRecord extends AbstractTableGateway
                 return $status;
             }
         }
-        
+
         if ($status) {
             $id = $this->getInsertId();
             if (preg_match('/^\d+$/', $id) && $id != '0') {
@@ -303,7 +303,7 @@ abstract class ActiveRecord extends AbstractTableGateway
             $action = ($this->getScenario() == 'insert') ? 'created' : 'updated';
             $this->addError($this->$tablePrimaryKey, 'Record not ' . $action . '!');
         }
-        
+
         return !$this->hasErrors();
     }
 

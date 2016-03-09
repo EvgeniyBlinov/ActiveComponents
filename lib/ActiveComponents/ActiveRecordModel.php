@@ -95,9 +95,9 @@ abstract class ActiveRecordModel extends ActiveRecord
         if (!$this->beforeValidate($rules)) {
             return false;
         }
-        
+
         $modelRules = count($rules) ? $rules : $this->rules();
-        
+
         foreach ($modelRules as $rule) {
             $errors = \ActiveComponents\CreateValidator::getInstance()->validate($this, $rule)->getErrors();
             if (count($errors)) {

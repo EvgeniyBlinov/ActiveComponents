@@ -20,7 +20,7 @@ abstract class AbstractModel extends AbstractComponent
      * Array of model attributes
      */
     protected $attributes = array();
-    
+
     /**
      * Array of native model attributes. Read only.
      */
@@ -94,9 +94,9 @@ abstract class AbstractModel extends AbstractComponent
         if (!$this->beforeValidate($rules)) {
             return false;
         }
-        
+
         $modelRules = count($rules) ? $rules : $this->rules();
-        
+
         foreach ($modelRules as $rule) {
             $errors = CreateValidator::getInstance()->validate($this, $rule)->getErrors();
             if (count($errors)) {
@@ -132,7 +132,7 @@ abstract class AbstractModel extends AbstractComponent
 
         return $this;
     }
-    
+
     /**
      * Set attribute
      * @param string $name
@@ -151,5 +151,4 @@ abstract class AbstractModel extends AbstractComponent
     {
         return array_filter($this->attributes, function($attribute){ return ($attribute !== null); });
     }
-
 }

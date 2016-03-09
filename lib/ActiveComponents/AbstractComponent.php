@@ -19,7 +19,7 @@ abstract class AbstractComponent
      * @var array of component errors
      */
     protected $errors = array();
-    
+
     /**
      * Get model errors
      * @return array
