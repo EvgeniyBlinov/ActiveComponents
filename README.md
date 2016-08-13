@@ -9,7 +9,7 @@ Light ORM for ZF2
 
 ```sh
 composer config repositories.activecomponents git https://github.com/EvgeniyBlinov/ActiveComponents
-composer require "cent/activecomponents:v0.0.3"
+composer require "cent/activecomponents:v0.0.4"
 ```
 
 ## How to use ActiveRecordModel ##

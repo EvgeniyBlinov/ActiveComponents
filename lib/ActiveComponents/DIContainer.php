@@ -28,7 +28,7 @@ class DIContainer
     function __get($id)
     {
         if (!isset($this->values[$id])) {
-            throw new InvalidArgumentException(sprintf('Value "%s" is not defined.', $id));
+            throw new \InvalidArgumentException(sprintf('Value "%s" is not defined.', $id));
         }
 
         return is_callable($this->values[$id]) ?
