@@ -73,6 +73,29 @@ class CreateValidator
     }
 
     /**
+     * Get attribute rules
+     *
+     * @param array $attributes
+     * @param array $rules
+     * @return array
+     * @author Evgeniy Blinov <evgeniy_blinov@mail.ru>
+     **/
+    public static function getAttributeRules(array $attributes, array $rules)
+    {
+        $rules = array();
+        foreach ($rules as $rule) {
+            $fields = explode(',', str_replace(' ', '', array_shift($rule)));
+            foreach ($fields as $field) {
+                if (in_array($field, $attributes)) {
+                    array_unshift($rule, $field);
+                    $rules[] = $rule;
+                }
+            }
+        }
+        return $rules;
+    }
+
+    /**
      * Validate
      * @param array $rule
      * @return CreateValidator

@@ -85,6 +85,18 @@ abstract class AbstractModel extends AbstractComponent
     }
 
     /**
+     * Get attribute rules
+     *
+     * @param array $attributes
+     * @return array
+     * @author Evgeniy Blinov <evgeniy_blinov@mail.ru>
+     **/
+    public function getAttributeRules(array $attributes)
+    {
+        return CreateValidator::getAttributeRules($attributes, $this->rules());
+    }
+
+    /**
      * Validate function
      * @param array $rules
      * @return bolean if model is valid
