@@ -82,17 +82,17 @@ class CreateValidator
      **/
     public static function getAttributeRules(array $attributes, array $rules)
     {
-        $rules = array();
+        $ar = array();
         foreach ($rules as $rule) {
             $fields = explode(',', str_replace(' ', '', array_shift($rule)));
             foreach ($fields as $field) {
                 if (in_array($field, $attributes)) {
                     array_unshift($rule, $field);
-                    $rules[] = $rule;
+                    $ar[] = $rule;
                 }
             }
         }
-        return $rules;
+        return $ar;
     }
 
     /**
